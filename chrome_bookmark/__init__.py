@@ -59,7 +59,7 @@ class Token:
 
 class Tokenizer:
 
-    def __init__(self, html):
+    def __init__(self, html: str):
         self.html = html
 
     def __iter__(self):
@@ -352,11 +352,10 @@ class Parser:
         self.assert_equal(self.token(0), TAG, LABEL, ["</A>"])
         self.consume()
 
-        file = File(
+        return File(
             content=content,
             file_object_list=[],
             href=attributes["href"],
             add_date=attributes["add_date"],
             icon=attributes.get("icon", None)
         )
-        return file
